@@ -30,6 +30,7 @@ func init() {
 		{Name: "Colorado", Population: 5758736, ElectoralVotes: 9},
 		{Name: "Connecticut", Population: 3565287, ElectoralVotes: 7},
 		{Name: "Delaware", Population: 973764, ElectoralVotes: 3},
+		{Name: "District of Columbia", Population: 705749, ElectoralVotes: 3},
 		{Name: "Florida", Population: 21477737, ElectoralVotes: 29},
 		{Name: "Georgia", Population: 10617423, ElectoralVotes: 16},
 		{Name: "Hawaii", Population: 1415872, ElectoralVotes: 4},
