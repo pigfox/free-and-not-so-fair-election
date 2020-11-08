@@ -11,7 +11,7 @@ func main() {
 
 	t := table.NewWriter()
 	t.SetOutputMirror(os.Stdout)
-	t.AppendHeader(table.Row{"State", "Population", "ElectoralVotes", "Electoral Votes Per Capita"})
+	t.AppendHeader(table.Row{"State", "Population", "Electoral Votes", "Electoral Votes Per Capita"})
 
 	rows := len(states.List)
 	counter := 0
