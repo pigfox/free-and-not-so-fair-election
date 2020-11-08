@@ -2,29 +2,29 @@ package main
 
 import (
 	"fmt"
+	"os"
 
-	"github.com/tatsushid/go-prettytable"
+	"github.com/jedib0t/go-pretty/table"
 )
 
 func main() {
 
-	tbl, err := prettytable.NewTable([]prettytable.Column{
-		{Header: "State"},
-		{Header: "Population"},
-		{Header: "ElectoralVotes"},
-		{Header: "Electoral Votes Per Capita"},
-	}...)
+	t := table.NewWriter()
+	t.SetOutputMirror(os.Stdout)
+	t.AppendHeader(table.Row{"State", "Population", "ElectoralVotes", "Electoral Votes Per Capita"})
 
-	if err != nil {
-		panic(err)
-	}
-
-	tbl.Separator = "\t"
-
+	rows := len(states.List)
+	counter := 0
 	for _, state := range states.List {
 		electoralVotesPerCapita := fmt.Sprintf("%f", state.ElectoralVotes/state.Population)
 		population := fmt.Sprintf("%v", int(state.Population))
-		tbl.AddRow(state.Name, population, state.ElectoralVotes, electoralVotesPerCapita)
+		t.AppendRow([]interface{}{state.Name, population, state.ElectoralVotes, electoralVotesPerCapita})
+
+		if counter < rows-1 {
+			t.AppendRow([]interface{}{"---------------------", "-----------", "--------------", "---------------------------"})
+		}
+		counter++
 	}
-	tbl.Print()
+
+	t.Render()
 }
