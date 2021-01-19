@@ -16,7 +16,7 @@ func main() {
 	rows := len(states.List)
 	counter := 0
 	for _, state := range states.List {
-		electoralVotesPerCapita := fmt.Sprintf("%.10f", state.ElectoralVotes/state.Population)
+		electoralVotesPerCapita := fmt.Sprintf("%.8f", state.ElectoralVotes/state.Population)
 		population := fmt.Sprintf("%v", int(state.Population))
 		t.AppendRow([]interface{}{state.Name, population, state.ElectoralVotes, electoralVotesPerCapita})
 
